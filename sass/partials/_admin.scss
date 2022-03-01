@@ -21,22 +21,51 @@
   padding: 10px 20px;
 }
 
-.add-form {
-  .form-control,
-  .form-select {
-    font-size: 0.85rem;
-    padding: 10px 20px;
-    border: 1px solid #727379;
-    border-radius: 1.2rem;
+.add-container {
+  margin-bottom: 40px;
+  h1 {
+    margin: 48px 0 20px 0;
   }
+  &__form {
+    max-width: 600px;
+    .form-control,
+    .form-select {
+      font-size: 0.85rem;
+      padding: 10px 20px;
+      border: 1px solid #727379;
+      border-radius: 1.2rem;
+    }
+    .form-control {
+      &[type="file"] {
+        padding: 0;
+        &::file-selector-button {
+          border-radius: 1.2rem 0 0 1.2rem;
+          padding: 15px 15px 15px 30px;
+          color: $white;
+          background-color: rgba($color: $primary, $alpha: 1);
+        }
+        &:hover:not(:disabled):not([readonly])::file-selector-button {
+          color: $primary;
+          font-weight: 500;
+        }
+      }
+    }
 
-  .form-check-input {
-    padding: 10px;
-    margin-right: 10px;
-  }
+    .form-check-input {
+      padding: 10px;
+      margin-right: 10px;
+    }
 
-  .form-label {
-    font-weight: 500;
-    font-size: 1.1rem;
+    .form-label,
+    .form-check-label {
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    .input-group-text {
+      background-color: $primary;
+      color: $white;
+      border: 1px solid #727379;
+    }
   }
 }

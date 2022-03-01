@@ -9373,7 +9373,7 @@ main {
   border-radius: 0;
   padding: 0;
   max-width: fit-content;
-  margin: 20px 0;
+  margin: 10px 0;
   text-align: start;
   box-shadow: none;
 }
@@ -10205,22 +10205,57 @@ hr.dropdown-divider {
   padding: 10px 20px;
 }
 
-.add-form .form-control,
-.add-form .form-select {
+.add-container {
+  margin-bottom: 40px;
+}
+
+.add-container h1, .add-container .h1 {
+  margin: 48px 0 20px 0;
+}
+
+.add-container__form {
+  max-width: 600px;
+}
+
+.add-container__form .form-control,
+.add-container__form .form-select {
   font-size: 0.85rem;
   padding: 10px 20px;
   border: 1px solid #727379;
   border-radius: 1.2rem;
 }
 
-.add-form .form-check-input {
+.add-container__form .form-control[type="file"] {
+  padding: 0;
+}
+
+.add-container__form .form-control[type="file"]::file-selector-button {
+  border-radius: 1.2rem 0 0 1.2rem;
+  padding: 15px 15px 15px 30px;
+  color: #fff;
+  background-color: #1b1c1e;
+}
+
+.add-container__form .form-control[type="file"]:hover:not(:disabled):not([readonly])::file-selector-button {
+  color: #1b1c1e;
+  font-weight: 500;
+}
+
+.add-container__form .form-check-input {
   padding: 10px;
   margin-right: 10px;
 }
 
-.add-form .form-label {
+.add-container__form .form-label,
+.add-container__form .form-check-label {
   font-weight: 500;
   font-size: 1.1rem;
+}
+
+.add-container__form .input-group-text {
+  background-color: #1b1c1e;
+  color: #fff;
+  border: 1px solid #727379;
 }
 
 .login-container__heading {

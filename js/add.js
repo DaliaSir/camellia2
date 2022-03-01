@@ -9,10 +9,15 @@ createLoginLink();
 
 const addForm = document.querySelector(".add-form");
 const name = document.querySelector("#name");
+const nameError = document.querySelector("#nameError");
 const description = document.querySelector("#description");
+const descriptionError = document.querySelector("#descriptionError");
 const price = document.querySelector("#price");
+const priceError = document.querySelector("#priceError");
 const image = document.querySelector("#image");
+const imageError = document.querySelector("#imageError");
 const category = document.querySelector("#category");
+const categoryError = document.querySelector("#categoryError");
 const formMessage = document.querySelector(".form-message");
 const addButton = document.querySelector(".addButton");
 
@@ -29,6 +34,12 @@ addForm.addEventListener("submit", e => {
   e.preventDefault();
   formMessage.innerHTML = "";
 
+  nameError.innerHTML = "";
+  descriptionError.innerHTML = "";
+  priceError.innerHTML = "";
+  imageError.innerHTML = "";
+  categoryError.innerHTML = "";
+
   const nameValue = name.value.trim();
   const descriptionValue = description.value.trim();
   const priceValue = price.value.trim();
@@ -37,15 +48,15 @@ addForm.addEventListener("submit", e => {
 
 
   if (nameValue.length === 0) {
-    return displayMessage("warning", noName, formMessageContainer);
+    return displayMessage("form-warning", noName, "#nameError");
   } else if (descriptionValue.length === 0) {
-    return displayMessage("warning", noDescription, formMessageContainer);
+    return displayMessage("form-warning", noDescription, "#descriptionError");
   } else if (priceValue.length === 0 || isNaN(priceValue)) {
-    return displayMessage("warning", noPrice, formMessageContainer);
-  } else if (categoryValue.length === 0) {
-    return displayMessage("warning", noCategory, formMessageContainer);
+    return displayMessage("form-warning", noPrice, "#priceError");
   } else if (image.files.length === 0) {
-    return displayMessage("warning", noImage, formMessageContainer);
+    return displayMessage("form-warning", noImage, "#imageError");
+  } else if (categoryValue.length === 0) {
+    return displayMessage("form-warning", noCategory, "#categoryError");
   }
 
   addProduct(nameValue, descriptionValue, priceValue, featured, categoryValue);

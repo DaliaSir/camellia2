@@ -51,55 +51,61 @@
       </div>
     </nav>
 
-    <h1 class="text-center  my-5">Add a Product</h1>
+    <div class="add-container">
+      <h1 class="text-center">Add a Product</h1>
 
-    <div class="container">
-      <form class="mb-5 p-2 add-form">
+      <div class="container add-container__form">
+        <form class="mb-4 p-2 add-form">
 
-        <div class="input-group-container">
-          <div class="form-message"></div>
-
-          <div class="mb-5">
-            <label for="name" class="form-label">Name</label>
-            <input id="name" name="name" class="form-control" type="text" autofocus placeholder="Product's name" />
-          </div>
-          <div class="mb-5 add-textarea">
-            <label for="description" class="form-label">Description</label>
-            <textarea id="description" name="description" class="form-control" rows="4" type="text"
-              placeholder="Product's description"></textarea>
-          </div>
-          <div class="mb-5">
-            <label for="price" class="form-label">Price</label>
-            <div class="input-group mb-3">
-              <span class="input-group-text">&dollar;</span>
-              <input type="text" id="price" name="price" class="form-control" placeholder="Product's price"
-                aria-label="US Dollar amount">
+          <div class="input-group-container">
+            <div class="form-message"></div>
+            <div class="mb-5">
+              <label for="name" class="form-label">Name</label>
+              <input id="name" name="name" class="form-control" type="text" autofocus placeholder="Product's name" />
+              <div id="nameError"></div>
+            </div>
+            <div class="mb-5 add-textarea">
+              <label for="description" class="form-label">Description</label>
+              <textarea id="description" name="description" class="form-control" rows="4" type="text"
+                placeholder="Product's description"></textarea>
+              <div id="descriptionError"></div>
+            </div>
+            <div class="mb-5">
+              <label for="price" class="form-label">Price</label>
+              <div class="input-group">
+                <span class="input-group-text">&dollar;</span>
+                <input type="text" id="price" name="price" class="form-control" placeholder="Product's price"
+                  aria-label="US Dollar amount">
+              </div>
+              <div id="priceError"></div>
+            </div>
+            <div class="mb-5">
+              <label for="image" class="form-label">Image</label>
+              <input id="image" name="image" class="form-control" type="file" accept="image/*"
+                placeholder="Choose product's image" />
+              <div id="imageError"></div>
+            </div>
+            <div class="mb-5">
+              <label for="category" class="form-label">Category</label>
+              <select class="form-select" name="category" id="category">
+                <option value="">Choose category...</option>
+                <option value="1">Tea</option>
+                <option value="2">Teaware</option>
+              </select>
+              <div id="categoryError"></div>
+            </div>
+            <div class="form-check mb-5">
+              <input class="form-check-input" name="featured" type="checkbox" id="featuredCheck">
+              <label class="form-check-label" for="featuredCheck">
+                Featured
+              </label>
             </div>
           </div>
 
-          <div class="form-check mb-5">
-            <input class="form-check-input" name="featured" type="checkbox" id="featuredCheck">
-            <label class="form-check-label" for="featuredCheck">
-              Featured
-            </label>
+          <div class="addButton-container">
+            <button type="submit" class="btn addButton">Add</button>
           </div>
-        </div>
-        <div class="mb-5">
-          <label for="image" class="form-label">Image</label>
-          <input id="image" name="image" class="form-control" type="file" accept="image/*"
-            placeholder="Choose product's image" />
-        </div>
-        <div class="mb-5">
-          <label for="category" class="form-label">Category</label>
-          <select class="form-select" name="category" id="category">
-            <option value="">Choose category...</option>
-            <option value="1">Tea</option>
-            <option value="2">Teaware</option>
-          </select>
-        </div>
-        <div class="addButton-container">
-          <button type="submit" class="btn addButton">Add</button>
-        </div>
+      </div>
     </div>
   </main>
 
