@@ -21,7 +21,5 @@ export function renderFeatured(featured) {
           </div>
         </a>`;
     }
-
-
   });
 }

@@ -86,16 +86,19 @@ async function addProduct(name, description, price, featured, category) {
     if (json.created_at) {
       displayMessage("success", addedProduct, formMessageContainer);
       addButton.innerHTML = "Add";
+      window.scrollTo(top);
       addForm.reset();
     }
 
     if (json.message) {
       displayMessage("error", json.message, formMessageContainer);
+      window.scrollTo(top);
     }
 
   } catch (error) {
     console.log(error);
     displayMessage("error", errorAddProduct, formMessageContainer);
+    window.scrollTo(top);
   }
 
 }

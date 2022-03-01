@@ -9388,6 +9388,7 @@ main {
   border: 12px solid #1b1c1e;
   border-top: 12px solid #fff;
   border-radius: 50%;
+  background-color: #c11e2f;
   width: 80px;
   height: 80px;
   margin: 40px 60px 40px 48%;
@@ -9921,20 +9922,6 @@ hr.dropdown-divider {
   }
 }
 
-.details-container .breadcrumb {
-  padding: 20px 0;
-  font-size: 1.1rem;
-}
-
-.details-container .breadcrumb a {
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.details-container .breadcrumb a:hover {
-  text-decoration: underline;
-}
-
 .details-container__product-details {
   padding: 20px 20px 60px 20px;
 }
@@ -9990,6 +9977,20 @@ hr.dropdown-divider {
 .details-container__product-details--addCart-btn:active {
   border: 1px solid #198754;
   box-shadow: 5px 5px #198754;
+}
+
+.breadcrumb {
+  padding: 20px 0;
+  font-size: 1.1rem;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
 }
 
 .modal {
@@ -10179,7 +10180,8 @@ hr.dropdown-divider {
 }
 
 .loginButton,
-.addButton {
+.addButton,
+.updateButton {
   background-color: #1b1c1e;
   color: #fff;
   padding: 12px 24px;
@@ -10188,7 +10190,8 @@ hr.dropdown-divider {
 }
 
 .loginButton:hover,
-.addButton:hover {
+.addButton:hover,
+.updateButton:hover {
   background-color: #fff;
   color: #1b1c1e;
   border: 1px solid #1b1c1e;
@@ -10197,7 +10200,8 @@ hr.dropdown-divider {
 }
 
 .loginButton:active,
-.addButton:active {
+.addButton:active,
+.updateButton:active {
   box-shadow: 5px 5px #1b1c1e;
 }
 
@@ -10205,57 +10209,75 @@ hr.dropdown-divider {
   padding: 10px 20px;
 }
 
-.add-container {
+.add-container,
+.edit-product-container {
   margin-bottom: 40px;
 }
 
-.add-container h1, .add-container .h1 {
+.add-container h1, .add-container .h1,
+.edit-product-container h1,
+.edit-product-container .h1 {
   margin: 48px 0 20px 0;
 }
 
-.add-container__form {
+.add-container__form,
+.edit-product-container__form {
   max-width: 600px;
 }
 
 .add-container__form .form-control,
-.add-container__form .form-select {
+.add-container__form .form-select,
+.edit-product-container__form .form-control,
+.edit-product-container__form .form-select {
   font-size: 0.85rem;
   padding: 10px 20px;
   border: 1px solid #727379;
   border-radius: 1.2rem;
 }
 
-.add-container__form .form-control[type="file"] {
+.add-container__form .form-control[type="file"],
+.edit-product-container__form .form-control[type="file"] {
   padding: 0;
 }
 
-.add-container__form .form-control[type="file"]::file-selector-button {
+.add-container__form .form-control[type="file"]::file-selector-button,
+.edit-product-container__form .form-control[type="file"]::file-selector-button {
   border-radius: 1.2rem 0 0 1.2rem;
   padding: 15px 15px 15px 30px;
   color: #fff;
   background-color: #1b1c1e;
 }
 
-.add-container__form .form-control[type="file"]:hover:not(:disabled):not([readonly])::file-selector-button {
+.add-container__form .form-control[type="file"]:hover:not(:disabled):not([readonly])::file-selector-button,
+.edit-product-container__form .form-control[type="file"]:hover:not(:disabled):not([readonly])::file-selector-button {
   color: #1b1c1e;
   font-weight: 500;
 }
 
-.add-container__form .form-check-input {
+.add-container__form .form-check-input,
+.edit-product-container__form .form-check-input {
   padding: 10px;
   margin-right: 10px;
 }
 
 .add-container__form .form-label,
-.add-container__form .form-check-label {
+.add-container__form .form-check-label,
+.edit-product-container__form .form-label,
+.edit-product-container__form .form-check-label {
   font-weight: 500;
   font-size: 1.1rem;
 }
 
-.add-container__form .input-group-text {
+.add-container__form .input-group-text,
+.edit-product-container__form .input-group-text {
   background-color: #1b1c1e;
   color: #fff;
   border: 1px solid #727379;
+}
+
+/*-----------EDIT-------------*/
+.edit-form {
+  display: none;
 }
 
 .login-container__heading {
