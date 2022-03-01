@@ -1,0 +1,22 @@
+.login-container {
+  &__heading {
+    text-align: center;
+    h1.text-center.my-5 {
+      margin-bottom: 1rem !important;
+    }
+    p {
+      color: rgba(0, 0, 0, 0.55);
+    }
+  }
+  &__form {
+    max-width: 600px;
+    label {
+      font-weight: 500;
+    }
+    .form-control {
+      font-size: 0.85rem;
+      padding: 10px 20px;
+      border: 1px solid #727379;
+    }
+  }
+}

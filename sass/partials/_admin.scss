@@ -1,0 +1,42 @@
+.loginButton,
+.addButton {
+  background-color: $primary;
+  color: $white;
+  padding: 12px 24px;
+  margin-top: 10px;
+  transition: 0.3s ease;
+  &:hover {
+    background-color: $white;
+    color: $primary;
+    border: 1px solid $primary;
+    font-weight: 500;
+    box-shadow: 3px 3px rgba($color: $primary, $alpha: 1);
+  }
+  &:active {
+    box-shadow: 5px 5px rgba($color: $primary, $alpha: 1);
+  }
+}
+
+.form-message {
+  padding: 10px 20px;
+}
+
+.add-form {
+  .form-control,
+  .form-select {
+    font-size: 0.85rem;
+    padding: 10px 20px;
+    border: 1px solid #727379;
+    border-radius: 1.2rem;
+  }
+
+  .form-check-input {
+    padding: 10px;
+    margin-right: 10px;
+  }
+
+  .form-label {
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
+}

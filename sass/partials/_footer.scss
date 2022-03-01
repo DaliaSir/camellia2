@@ -1,0 +1,109 @@
+.footer {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  background: repeating-linear-gradient(
+    to bottom,
+    #f5f5f5,
+    #f5f5f5 2px,
+    transparent 2px,
+    transparent 16px
+  );
+  .container {
+    margin-top: 2rem;
+  }
+}
+
+.footer-company {
+  p {
+    margin: 20px auto;
+    font-size: 1.2rem;
+    font-weight: 500;
+    max-width: 250px;
+  }
+  &__icons {
+    padding-left: 20px;
+    a {
+      font-size: 2rem;
+      color: #000000;
+    }
+    i {
+      padding: 10px 20px 10px 0;
+      cursor: pointer;
+    }
+  }
+  .navbar-brand img {
+    transition: box-shadow 0.3s ease;
+    &:hover {
+      border-bottom: none;
+      box-shadow: 4px 4px rgba($color: $primary, $alpha: 1);
+    }
+    &:active {
+      box-shadow: 6px 6px rgba($color: $primary, $alpha: 1);
+    }
+  }
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h5 {
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  a {
+    text-decoration: none;
+    color: $primary;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+}
+
+.footer-links a:hover,
+.footer-company__icons i:hover {
+  color: $colour-accent;
+}
+
+.footer-copy {
+  width: 100%;
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: $primary;
+  color: $white;
+  padding: 20px 10px 4px 10px;
+}
+
+@media (min-width: $bootstrap-md) {
+  .footer {
+    .row {
+      padding: 20px;
+    }
+    .container {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .footer-links {
+    padding-top: 10px;
+  }
+
+  .footer-company {
+    img {
+      margin-left: 0;
+    }
+    &__icons {
+      padding-left: 0px;
+    }
+  }
+}
+
+@media (min-width: $bootstrap-lg) {
+  .footer-company {
+    p {
+      margin: 20px 0;
+    }
+  }
+}

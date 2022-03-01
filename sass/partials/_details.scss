@@ -1,0 +1,104 @@
+.details-container {
+  .breadcrumb {
+    padding: 20px 0;
+    font-size: 1.1rem;
+    a {
+      text-decoration: none;
+      font-weight: 500;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  &__product-details {
+    padding: 20px 20px 60px 20px;
+    &--image {
+      width: 256px;
+      height: 256px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 20px auto 40px auto;
+    }
+    &--text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      max-width: 256px;
+      margin: 0 auto;
+      h1 {
+        font-weight: 600;
+      }
+      p {
+        font-size: 1.2rem;
+        margin-top: 10px;
+      }
+      .details-price {
+        font-weight: 600;
+      }
+    }
+    &--addCart-btn {
+      background-color: $primary;
+      color: $white;
+      font-weight: 500;
+      padding: 12px 24px;
+      max-width: 200px;
+      transition: 0.3s ease;
+      &:hover {
+        background-color: $white;
+        color: $primary;
+        border: 1px solid $primary;
+        font-weight: 500;
+        box-shadow: 3px 3px rgba($color: $primary, $alpha: 1);
+      }
+      &:active {
+        border: 1px solid $success;
+        box-shadow: 5px 5px rgba($color: $success, $alpha: 1);
+      }
+    }
+  }
+}
+
+.modal {
+  text-align: center;
+}
+.modal-header {
+  border-bottom: none;
+}
+
+@media (min-width: $bootstrap-sm) {
+  .details-container {
+    &__product-details {
+      &--image {
+        width: 350px;
+        height: 350px;
+      }
+      &--text {
+        max-width: 350px;
+      }
+    }
+  }
+}
+@media (min-width: $bootstrap-lg) {
+  .details-container {
+    &__product-details {
+      &--image {
+        width: 550px;
+        height: 550px;
+        margin: 0 auto;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      &--text {
+        align-items: flex-start;
+        max-width: max-content;
+        p {
+          font-size: 1.4rem;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}

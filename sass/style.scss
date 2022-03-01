@@ -1,0 +1,57 @@
+@import "partials/custom";
+
+/*!
+ * Bootstrap v5.1.1 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors
+ * Copyright 2011-2021 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+
+// scss-docs-start import-stack
+// Configuration
+@import "../bootstrap-sass/functions";
+@import "../bootstrap-sass/variables";
+@import "../bootstrap-sass/mixins";
+@import "../bootstrap-sass/utilities";
+
+// Layout & components
+@import "../bootstrap-sass/root";
+@import "../bootstrap-sass/reboot";
+@import "../bootstrap-sass/type";
+@import "../bootstrap-sass/images";
+@import "../bootstrap-sass/containers";
+@import "../bootstrap-sass/grid";
+@import "../bootstrap-sass/forms";
+@import "../bootstrap-sass/buttons";
+@import "../bootstrap-sass/breadcrumb";
+@import "../bootstrap-sass/transitions";
+@import "../bootstrap-sass/button-group";
+@import "../bootstrap-sass/nav";
+@import "../bootstrap-sass/navbar";
+@import "../bootstrap-sass/card";
+@import "../bootstrap-sass/badge";
+@import "../bootstrap-sass/alert";
+@import "../bootstrap-sass/list-group";
+@import "../bootstrap-sass/close";
+@import "../bootstrap-sass/modal";
+@import "../bootstrap-sass/spinners";
+@import "../bootstrap-sass/offcanvas";
+@import "../bootstrap-sass/placeholders";
+
+// Helpers
+@import "../bootstrap-sass/helpers";
+
+// Utilities
+@import "../bootstrap-sass/utilities/api";
+// scss-docs-end import-stack
+
+@import "partials/layout";
+@import "partials/typography";
+@import "partials/nav";
+@import "partials/home";
+@import "partials/footer";
+@import "partials/products";
+@import "partials/details";
+@import "partials/cart";
+@import "partials/admin";
+@import "partials/login";
