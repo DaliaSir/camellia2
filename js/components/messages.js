@@ -17,7 +17,7 @@ export const badLogin = "Invalid username or password.";
 
 export const noName = "Name is required";
 export const noDescription = "Description is required";
-export const noPrice = "Price is required";
+export const noPrice = "Price is required and it should be a number";
 export const noImage = "Image is required";
 export const noCategory = "Category is required";
 

@@ -30,7 +30,7 @@ export function renderProducts(products) {
                                         <div class="product__img card-img-top" style="background-image: url('${product.image.url}');"></div>
                                         <div class="card-body">
                                           <h4 class="card-title">${productName}</h4>
-                                          <p "card-text">&#36; ${productPrice}</p>
+                                          <p class="card-text">&#36; ${productPrice}</p>
                                         </div>
                                       </a>`;
     });

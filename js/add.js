@@ -11,7 +11,6 @@ const addForm = document.querySelector(".add-form");
 const name = document.querySelector("#name");
 const description = document.querySelector("#description");
 const price = document.querySelector("#price");
-const featured = document.querySelector("#featuredCheck");
 const image = document.querySelector("#image");
 const category = document.querySelector("#category");
 const formMessage = document.querySelector(".form-message");
@@ -21,15 +20,13 @@ let formData = new FormData();
 
 image.addEventListener("change", (e) => {
   const chosenImage = e.target.files;
-  console.log(chosenImage);
   if (e.target && e.target.files) {
-    formData.append("files.image", chosenImage);
+    formData.append("files.image", chosenImage[0]);
   }
 })
 
 addForm.addEventListener("submit", e => {
   e.preventDefault();
-
   formMessage.innerHTML = "";
 
   const nameValue = name.value.trim();
@@ -47,10 +44,11 @@ addForm.addEventListener("submit", e => {
     return displayMessage("warning", noPrice, formMessageContainer);
   } else if (categoryValue.length === 0) {
     return displayMessage("warning", noCategory, formMessageContainer);
+  } else if (image.files.length === 0) {
+    return displayMessage("warning", noImage, formMessageContainer);
   }
 
   addProduct(nameValue, descriptionValue, priceValue, featured, categoryValue);
-
 });
 
 async function addProduct(name, description, price, featured, category) {
@@ -58,15 +56,13 @@ async function addProduct(name, description, price, featured, category) {
 
   const productData = JSON.stringify({ name: name, description: description, price: price, featured: featured, category: category });
 
-
-
   const token = getToken();
+  formData.append("data", productData);
 
   const options = {
     method: "POST",
-    body: formData.append("product", productData),
+    body: formData,
     headers: {
-      "Content-Type": "application/json",
       "Authorization": `Bearer ${token}`
     },
   };
@@ -75,7 +71,6 @@ async function addProduct(name, description, price, featured, category) {
     const response = await fetch(url, options);
     const json = await response.json();
     addButton.innerHTML = "Adding...";
-    console.log(json);
 
     if (json.created_at) {
       displayMessage("success", addedProduct, formMessageContainer);
