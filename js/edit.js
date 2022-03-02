@@ -133,7 +133,7 @@ async function updateProduct(name, description, price, featured, category, id) {
 
     if (json.updated_at) {
       displayMessage("success", `Product &quot;${json.name}&quot; Updated&excl;`, formMessageContainer);
-      addButton.innerHTML = "Update";
+      updateButton.innerHTML = "Update";
       window.scrollTo(top);
     }
 
