@@ -51,7 +51,7 @@ const loader = document.querySelector(".loader");
     name.value = product.name;
     price.value = product.price;
     description.value = product.description;
-    image.files = product.image[0];
+    image.files = formData.get("files.image");
     category.value = product.category.id;
     idInput.value = product.id;
 
@@ -143,5 +143,4 @@ async function updateProduct(name, description, price, featured, category, id) {
     displayMessage("error", error, formMessageContainer);
     window.scrollTo(top);
   }
-
 }
