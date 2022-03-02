@@ -1,9 +1,10 @@
 import { baseUrl } from "./components/baseUrl.js";
 import { displayMessage } from "./utils/displayMessage.js";
 import { createLoginLink } from "./utils/dynamicMenu.js";
-import { noName, noDescription, noPrice, noImage, noCategory } from "./components/messages.js";
+import { noName, noDescription, noPrice, noCategory } from "./components/messages.js";
 import { formMessageContainer } from "./components/elements.js";
 import { getToken } from "./utils/saveUser.js";
+import deleteButton from "./utils/deleteBtn.js";
 
 createLoginLink();
 
@@ -18,7 +19,6 @@ if (!id) {
 let formData = new FormData();
 
 const productUrl = baseUrl + "products/" + id;
-console.log(productUrl);
 
 const editForm = document.querySelector(".edit-form");
 const name = document.querySelector("#name");
@@ -28,8 +28,7 @@ const descriptionError = document.querySelector("#descriptionError");
 const price = document.querySelector("#price");
 const priceError = document.querySelector("#priceError");
 const image = document.querySelector("#image");
-const imageContainer = document.querySelector(".edit-product-image");
-const imageError = document.querySelector("#imageError");
+const imageContainer = document.querySelector(".image-container__image");
 const category = document.querySelector("#category");
 const categoryError = document.querySelector("#categoryError");
 const idInput = document.querySelector("#id");
@@ -47,20 +46,22 @@ const loader = document.querySelector(".loader");
     const breadcrumbName = document.querySelector(".breadcrumb-item.active");
     breadcrumbName.innerHTML = `${product.name}`;
 
-    console.log(product);
-
     name.value = product.name;
     price.value = product.price;
     description.value = product.description;
-    image.files = formData.get("files.image");
     category.value = product.category.id;
     idInput.value = product.id;
-
-    imageContainer.style.backgroundImage = product.image.url;
 
     if (product.featured === true) {
       featured.checked = true;
     }
+
+    imageContainer.innerHTML = `
+    <h5>Product Image</h5>
+    <div class="image-container__image--product-image" style="background-image: url('${product.image.url}');"></div>
+    `
+
+    deleteButton(product.id);
 
   } catch (error) {
     console.log(error);
@@ -78,7 +79,6 @@ editForm.addEventListener("submit", e => {
   nameError.innerHTML = "";
   descriptionError.innerHTML = "";
   priceError.innerHTML = "";
-  imageError.innerHTML = "";
   categoryError.innerHTML = "";
 
   const nameValue = name.value.trim();
@@ -94,8 +94,6 @@ editForm.addEventListener("submit", e => {
     return displayMessage("form-warning", noDescription, "#descriptionError");
   } else if (priceValue.length === 0 || isNaN(priceValue)) {
     return displayMessage("form-warning", noPrice, "#priceError");
-  } else if (image.files.length === 0) {
-    return displayMessage("form-warning", noImage, "#imageError");
   } else if (categoryValue.length === 0) {
     return displayMessage("form-warning", noCategory, "#categoryError");
   }
@@ -105,6 +103,7 @@ editForm.addEventListener("submit", e => {
 
 image.addEventListener("change", (e) => {
   const chosenImage = e.target.files;
+  console.log(chosenImage);
   if (e.target && e.target.files) {
     formData.append("files.image", chosenImage[0]);
   }
@@ -130,10 +129,11 @@ async function updateProduct(name, description, price, featured, category, id) {
   try {
     const response = await fetch(url, options);
     const json = await response.json();
-    console.log(json);
+    updateButton.innerHTML = "Updating...";
 
     if (json.updated_at) {
-      displayMessage("success", "Product Updated!", formMessageContainer);
+      displayMessage("success", `Product &quot;${json.name}&quot; Updated&excl;`, formMessageContainer);
+      addButton.innerHTML = "Update";
       window.scrollTo(top);
     }
 
@@ -141,6 +141,10 @@ async function updateProduct(name, description, price, featured, category, id) {
       displayMessage("error", json.message, formMessageContainer);
       window.scrollTo(top);
     }
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000);
   } catch (error) {
     console.log(error);
     displayMessage("error", error, formMessageContainer);

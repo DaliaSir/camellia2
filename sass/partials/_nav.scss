@@ -37,6 +37,7 @@
   transition: box-shadow 0.3s ease;
   a {
     font-weight: 500;
+    letter-spacing: 0.05rem;
   }
   &:hover {
     box-shadow: 3px 3px rgba($color: $primary, $alpha: 1);
@@ -70,6 +71,13 @@ ul.navbar-nav.ms-auto.mb-2.mb-lg-0 {
   &:hover,
   &:focus {
     background-color: $colour-accent;
+    color: $white;
+  }
+}
+
+a.dropdown-item {
+  &:active {
+    background-color: $primary;
     color: $white;
   }
 }

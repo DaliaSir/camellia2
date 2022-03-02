@@ -19,6 +19,7 @@ const productUrl = baseUrl + "products/" + id;
   try {
     const response = await fetch(productUrl);
     const details = await response.json();
+    console.log(details);
 
     document.title = "Camellia | " + details.name;
     const breadcrumbName = document.querySelector(".breadcrumb-item.active");

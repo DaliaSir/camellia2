@@ -52,6 +52,7 @@
       border: 1px solid $primary;
       transition: 0.3s ease;
       padding: 10px 18px;
+      letter-spacing: 0.1rem;
       &:hover {
         background-color: $white;
         color: $primary;
@@ -69,6 +70,7 @@
       transition: 0.3s ease;
       border: 1px solid $primary;
       padding: 10px 18px;
+      letter-spacing: 0.1rem;
       &:hover {
         background-color: $white;
         color: $primary;
@@ -86,6 +88,7 @@
   border-top: 1px solid $colour-accent;
   border-bottom: 1px solid $colour-accent;
   margin-top: 20px;
+  letter-spacing: 0.03rem;
   transition: box-shadow 0.3s ease;
   &:hover {
     border: 1px solid $primary;

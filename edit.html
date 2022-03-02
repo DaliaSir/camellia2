@@ -75,7 +75,7 @@
             </div>
             <div class="mb-5 add-textarea">
               <label for="description" class="form-label">Description</label>
-              <textarea id="description" name="description" class="form-control" rows="4" type="text"
+              <textarea id="description" name="description" class="form-control" rows="5" type="text"
                 placeholder="Product's description"></textarea>
               <div id="descriptionError"></div>
             </div>
@@ -88,12 +88,13 @@
               </div>
               <div id="priceError"></div>
             </div>
-            <div class="edit-product-image"></div>
-            <div class="mb-5">
-              <label for="image" class="form-label">Image</label>
-              <input id="image" name="image" class="form-control" type="file" accept="image/*"
-                placeholder="Choose product's image" />
-              <div id="imageError"></div>
+            <div class="mb-5 image-container">
+              <div class="image-container__image"></div>
+              <div class="image-container__input">
+                <label for="image" class="form-label">Choose a different image</label>
+                <input id="image" name="image" class="form-control" type="file" accept="image/*"
+                  placeholder="Choose product's image" />
+              </div>
             </div>
             <div class="mb-5">
               <label for="category" class="form-label">Category</label>
@@ -116,6 +117,10 @@
 
           <div class="updateButton-container">
             <button type="submit" class="btn updateButton">Update</button>
+          </div>
+          <hr />
+          <div class="deleteButton-container">
+            <button type="button" class="btn deleteButton">Delete</button>
           </div>
       </div>
   </main>
