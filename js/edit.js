@@ -28,6 +28,7 @@ const descriptionError = document.querySelector("#descriptionError");
 const price = document.querySelector("#price");
 const priceError = document.querySelector("#priceError");
 const image = document.querySelector("#image");
+const imageContainer = document.querySelector(".edit-product-image");
 const imageError = document.querySelector("#imageError");
 const category = document.querySelector("#category");
 const categoryError = document.querySelector("#categoryError");
@@ -54,6 +55,8 @@ const loader = document.querySelector(".loader");
     image.files = formData.get("files.image");
     category.value = product.category.id;
     idInput.value = product.id;
+
+    imageContainer.style.backgroundImage = product.image.url;
 
     if (product.featured === true) {
       featured.checked = true;
