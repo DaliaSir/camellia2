@@ -13,14 +13,11 @@ export function createLoginLink() {
   let loginLink = `<a class="nav-link  ${pathname === "/login.html" ? "active" : ""}" href="login.html">Login</a>`;
 
   if (typeof (username) === "string") {
+    const isActive = pathname === "/add.html" || pathname === "/edit-products.html" || pathname === "/edit.html";
     loginLink = `    
     <li class="dropdown">
-    <a class="nav-link dropdown-toggle 
-              ${pathname === "/add.html" ? "active" : ""} 
-              ${pathname === "/edit-products.html" ? "active" : ""}
-              ${pathname === "/edit.html" ? "active" : ""}"
-              id="navbarDropdown" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
-              Hello! ${username}
+    <a class="nav-link dropdown-toggle ${isActive ? "active" : ""} id="navbarDropdown" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+       Hello! ${username}
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
       <li><a class="dropdown-item  ${pathname === "/add.html" ? "active" : ""}" href="add.html">Add Product</a></li>
