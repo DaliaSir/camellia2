@@ -127,9 +127,9 @@ async function updateProduct(name, description, price, featured, category, id) {
   };
 
   try {
+    updateButton.innerHTML = "Updating...";
     const response = await fetch(url, options);
     const json = await response.json();
-    updateButton.innerHTML = "Updating...";
 
     if (json.updated_at) {
       displayMessage("success", `Product &quot;${json.name}&quot; Updated&excl;`, formMessageContainer);

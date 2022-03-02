@@ -79,9 +79,9 @@ async function addProduct(name, description, price, featured, category) {
   };
 
   try {
+    addButton.innerHTML = "Adding...";
     const response = await fetch(url, options);
     const json = await response.json();
-    addButton.innerHTML = "Adding...";
 
     if (json.created_at) {
       displayMessage("success", addedProduct, formMessageContainer);
