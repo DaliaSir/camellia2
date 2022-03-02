@@ -34,7 +34,6 @@ loginForm.addEventListener("submit", e => {
 async function successfulLogin(username, password) {
   const loginUrl = baseUrl + "auth/local";
   const userData = JSON.stringify({ identifier: username, password: password });
-
   const options = {
     method: "POST",
     body: userData,

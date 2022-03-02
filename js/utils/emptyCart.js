@@ -5,5 +5,6 @@ export function clearList(renderCart) {
     localStorage.removeItem("cart-list");
     renderCart();
     getCartBadge();
+    window.scrollTo(top);
   }
 }

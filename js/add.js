@@ -100,5 +100,4 @@ async function addProduct(name, description, price, featured, category) {
     displayMessage("error", errorAddProduct, formMessageContainer);
     window.scrollTo(top);
   }
-
 }

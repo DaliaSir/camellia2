@@ -110,14 +110,10 @@ image.addEventListener("change", (e) => {
 })
 
 async function updateProduct(name, description, price, featured, category, id) {
-
   const url = baseUrl + "products/" + id;
-
   const productData = JSON.stringify({ name: name, description: description, price: price, featured: featured, category: category });
-
   const token = getToken();
   formData.append("data", productData);
-
   const options = {
     method: "PUT",
     body: formData,
