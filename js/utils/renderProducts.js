@@ -6,11 +6,11 @@ export function renderProducts(products) {
   const { pathname } = document.location;
 
   if (pathname === "/edit-products.html") {
-    products.forEach((product) => {
-      const productName = product.name ? product.name : "Unknown name";
-      const productPrice = product.price ? product.price : "Unknown price";
+    products.data.forEach((product) => {
+      const productName = product.attributes.name ? product.attributes.name : "Unknown name";
+      const productPrice = product.attributes.price ? product.attributes.price : "Unknown price";
       productsContainer.innerHTML += `<div class="product edit-product" >
-                                        <div class="product__img card-img-top" style="background-image: url('${product.image.url}');"></div>
+                                        <div class="product__img card-img-top" style="background-image: url('${product.attributes.image.data.attributes.url}');"></div>
                                         <div class="card-body">
                                           <h4 class="card-title">${productName}</h4>
                                           <p "card-text">&#36; ${productPrice}</p>
@@ -23,11 +23,11 @@ export function renderProducts(products) {
                                       `;
     });
   } else {
-    products.forEach((product) => {
-      const productName = product.name ? product.name : "Unknown name";
-      const productPrice = product.price ? product.price : "Unknown price";
+    products.data.forEach((product) => {
+      const productName = product.attributes.name ? product.attributes.name : "Unknown name";
+      const productPrice = product.attributes.price ? product.attributes.price : "Unknown price";
       productsContainer.innerHTML += `<a class="product" href="details.html?id=${product.id}">
-                                        <div class="product__img card-img-top" style="background-image: url('${product.image.url}');"></div>
+                                        <div class="product__img card-img-top" style="background-image: url('${product.attributes.image.data.attributes.url}');"></div>
                                         <div class="card-body">
                                           <h4 class="card-title">${productName}</h4>
                                           <p class="card-text">&#36; ${productPrice}</p>

@@ -4,7 +4,7 @@ import { renderProducts } from "./utils/renderProducts.js";
 import { filterProducts } from "./utils/filterProducts.js";
 import { createLoginLink } from "./utils/dynamicMenu.js";
 
-const productsUrl = baseUrl + "products";
+const productsUrl = baseUrl + "products?populate=*";
 
 createLoginLink();
 

@@ -8,18 +8,17 @@ export function filterProducts(products) {
   search.onkeyup = (event) => {
     const searchValue = event.target.value.replace(/\s/g, "").toLowerCase();
 
-    const filteredValues = products.filter((product) => {
-      if (product.name.replace(/\s/g, "").toLowerCase().includes(searchValue)) {
+    const filteredValues = products.data.filter((product) => {
+      if (product.attributes.name.replace(/\s/g, "").toLowerCase().includes(searchValue)) {
         return true;
       }
     });
 
-    renderProducts(filteredValues);
+    renderProducts({ data: { filteredValues } });
 
     if (filteredValues.length === 0) {
       displayMessage("", noResults, ".products-container__products");
     }
   }
-
   renderProducts(products);
 }
