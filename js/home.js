@@ -33,11 +33,13 @@ createLoginLink();
 
 function fetchHeroImage(hero) {
   const heroContainer = document.querySelector(".hero-container__img");
+  heroContainer.innerHTML = "";
   heroContainer.style.background = `url(${hero.attributes.cover.data.attributes.url}) no-repeat center`;
 }
 
 function fetchBannerImage(banner) {
   const bannerContainer = document.querySelector(".tea-tasting__img");
+  bannerContainer.innerHTML = "";
   bannerContainer.style.background = `url(${banner.attributes.banner.data.attributes.url}) no-repeat center center`;
 }
 
