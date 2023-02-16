@@ -28,7 +28,7 @@ image.addEventListener("change", (e) => {
   if (e.target && e.target.files) {
     formData.append("files.image", chosenImage[0]);
   }
-})
+});
 
 addForm.addEventListener("submit", e => {
   e.preventDefault();
@@ -83,7 +83,7 @@ async function addProduct(name, description, price, featured, category) {
     const response = await fetch(url, options);
     const json = await response.json();
 
-    if (json.created_at) {
+    if (json.data.attributes.createdAt) {
       displayMessage("success", addedProduct, formMessageContainer);
       addButton.innerHTML = "Add";
       window.scrollTo(top);
@@ -100,4 +100,4 @@ async function addProduct(name, description, price, featured, category) {
     displayMessage("error", errorAddProduct, formMessageContainer);
     window.scrollTo(top);
   }
-}
+};

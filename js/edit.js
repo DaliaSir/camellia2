@@ -18,7 +18,7 @@ if (!id) {
 
 let formData = new FormData();
 
-const productUrl = baseUrl + "products/" + id;
+const productUrl = baseUrl + "products/" + id + "?populate=*";
 
 const editForm = document.querySelector(".edit-form");
 const name = document.querySelector("#name");
@@ -40,25 +40,27 @@ const loader = document.querySelector(".loader");
 (async function () {
   try {
     const response = await fetch(productUrl);
-    const product = await response.json();
+    const json = await response.json();
+    const product = json.data;
+    console.log(product);
 
-    document.title = "Camellia | Edit " + product.name;
+    document.title = "Camellia | Edit " + product.attributes.name;
     const breadcrumbName = document.querySelector(".breadcrumb-item.active");
-    breadcrumbName.innerHTML = `${product.name}`;
+    breadcrumbName.innerHTML = `${product.attributes.name}`;
 
-    name.value = product.name;
-    price.value = product.price;
-    description.value = product.description;
-    category.value = product.category.id;
+    name.value = product.attributes.name;
+    price.value = product.attributes.price;
+    description.value = product.attributes.description;
+    category.value = product.attributes.category.data.id;
     idInput.value = product.id;
 
-    if (product.featured === true) {
+    if (product.attributes.featured === true) {
       featured.checked = true;
     }
 
     imageContainer.innerHTML = `
     <h5>Product Image</h5>
-    <div class="image-container__image--product-image" style="background-image: url('${product.image.url}');"></div>
+    <div class="image-container__image--product-image" style="background-image: url('${product.attributes.image.data.attributes.url}');"></div>
     `
 
     deleteButton(product.id);
@@ -127,8 +129,8 @@ async function updateProduct(name, description, price, featured, category, id) {
     const response = await fetch(url, options);
     const json = await response.json();
 
-    if (json.updated_at) {
-      displayMessage("success", `Product &quot;${json.name}&quot; Updated&excl;`, formMessageContainer);
+    if (json.data.attributes.updatedAt) {
+      displayMessage("success", `Product &quot;${json.data.attributes.name}&quot; Updated&excl;`, formMessageContainer);
       updateButton.innerHTML = "Update";
       window.scrollTo(top);
     }
