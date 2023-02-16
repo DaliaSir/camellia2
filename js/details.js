@@ -37,7 +37,7 @@ const productUrl = baseUrl + "products/" + id + "?populate=*";
         <div>
           <h1>${details.attributes.name}</h1>
           <p>${details.attributes.description}</p>
-          <p class="details-price">&#36; ${details.attributes.price}</p>
+          <p class="details-price">&#36; ${details.attributes.price} </p>
         </div>  
         <a class="btn details-container__product-details--addCart-btn" 
         id="addToCartBtn" data-bs-toggle="modal" 

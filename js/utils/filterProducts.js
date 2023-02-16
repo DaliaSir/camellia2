@@ -5,8 +5,8 @@ import { noResults } from "../components/messages.js";
 const search = document.querySelector("#search");
 
 export function filterProducts(products) {
-  search.onkeyup = (event) => {
-    const searchValue = event.target.value.replace(/\s/g, "").toLowerCase();
+  search.onkeyup = (e) => {
+    const searchValue = e.target.value.replace(/\s/g, "").toLowerCase();
 
     const filteredValues = products.data.filter((product) => {
       if (product.attributes.name.replace(/\s/g, "").toLowerCase().includes(searchValue)) {
@@ -14,7 +14,8 @@ export function filterProducts(products) {
       }
     });
 
-    renderProducts({ data: { filteredValues } });
+    const data = filteredValues;
+    renderProducts({ data });
 
     if (filteredValues.length === 0) {
       displayMessage("", noResults, ".products-container__products");
