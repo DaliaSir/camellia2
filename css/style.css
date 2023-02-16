@@ -9385,13 +9385,13 @@ main {
 
 /*----LOADER-----*/
 .loader {
-  border: 12px solid #1b1c1e;
-  border-top: 12px solid #fff;
+  border: 10px solid #1b1c1e;
+  border-top: 10px solid #fff;
   border-radius: 50%;
   background-color: #c11e2f;
   width: 80px;
   height: 80px;
-  margin: 40px 60px 40px 40%;
+  margin: 40px auto 40px auto;
   animation: spin 2s linear infinite;
 }
 
